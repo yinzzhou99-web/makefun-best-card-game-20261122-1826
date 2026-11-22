@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ember Duel — a card battler</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+  <section id="title-screen" class="screen">
+    <div class="title-card">
+      <div class="title-ember">♥ ♦ ♠ ♣</div>
+      <h1>EMBER DUEL</h1>
+      <p class="tagline">A turn-based card battler of flame and ash.</p>
+      <p class="rules">You are the <b>Ember Knight</b> (30 life) against the <b>Ash Baron</b> (30 life).
+      Each turn you gain mana, draw a card, and play creatures and spells.
+      Creatures attack once a turn — reduce the Baron to 0 life to win.
+      <b>Guard</b> creatures must be attacked first. <b>Swift</b> creatures strike the turn they are played.</p>
+      <button id="play-button" class="big-button">▶ &nbsp;Play the Duel</button>
+      <p class="hint">Mouse to play · Keys 1–7 pick a hand card · Space ends your turn · Esc cancels</p>
+      <div class="title-cards">
+        <div class="mini-card flame"><span class="mini-cost">2</span><span class="mini-sym">♥</span><span class="mini-name">Ash Hound</span><span class="mini-stats">3 / 2</span></div>
+        <div class="mini-card ember"><span class="mini-cost">4</span><span class="mini-sym">♦</span><span class="mini-name">Magma Brute</span><span class="mini-stats">5 / 4</span></div>
+        <div class="mini-card stone"><span class="mini-cost">6</span><span class="mini-sym">♠</span><span class="mini-name">Inferno Drake</span><span class="mini-stats">7 / 6</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="table-screen" class="screen hidden">
+    <div id="enemy-side" class="side">
+      <div id="enemy-hero" class="hero enemy-hero">
+        <div class="hero-portrait">♠</div>
+        <div class="hero-info">
+          <div class="hero-name">Ash Baron</div>
+          <div class="hero-hp"><span class="hp-label">LIFE</span><span id="enemy-hp" class="hp-num">30</span><span class="hp-max">/ 30</span></div>
+          <div class="hero-mana"><span class="mana-label">MANA</span><span id="enemy-mana" class="mana-num">0 / 0</span></div>
+        </div>
+        <div class="hero-deck">Deck <span id="enemy-deck">20</span></div>
+      </div>
+      <div id="enemy-hand" class="hand enemy-hand"></div>
+      <div id="enemy-board" class="board"></div>
+    </div>
+
+    <div id="mid-bar">
+      <div id="turn-banner">Your turn</div>
+      <div id="game-log"></div>
+      <button id="end-turn" class="big-button small">End Turn ⏎</button>
+    </div>
+
+    <div id="player-side" class="side">
+      <div id="player-board" class="board"></div>
+      <div id="player-hand" class="hand"></div>
+      <div id="player-hero" class="hero player-hero">
+        <div class="hero-portrait">♥</div>
+        <div class="hero-info">
+          <div class="hero-name">Ember Knight — You</div>
+          <div class="hero-hp"><span class="hp-label">LIFE</span><span id="player-hp" class="hp-num">30</span><span class="hp-max">/ 30</span></div>
+          <div class="hero-mana"><span class="mana-label">MANA</span><span id="player-mana" class="mana-num">0 / 0</span></div>
+        </div>
+        <div class="hero-deck">Deck <span id="player-deck">20</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="end-screen" class="screen hidden">
+    <div class="title-card">
+      <h1 id="end-title">VICTORY</h1>
+      <p id="end-text" class="tagline"></p>
+      <p id="end-stats" class="rules"></p>
+      <button id="again-button" class="big-button">↻ &nbsp;Duel Again</button>
+    </div>
+  </section>
+</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
